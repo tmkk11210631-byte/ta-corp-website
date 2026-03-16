@@ -1,0 +1,24 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FFFFFF;
+  color: #111827;
+}
+
+@layer utilities {
+  .gold-gradient {
+    background: linear-gradient(135deg, #C0392B, #E74C3C, #C0392B);
+  }
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #9B1C1C, #C0392B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
