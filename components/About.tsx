@@ -69,7 +69,7 @@ export default function About() {
                 <span className="text-brand-gold font-black">代</span>
               </div>
               <div>
-                <p className="text-gray-900 font-black text-lg">田中 太郎</p>
+                <p className="text-gray-900 font-black text-lg">淺沼 天弘</p>
                 <p className="text-brand-gold text-sm">代表取締役社長 / T.A株式会社</p>
               </div>
             </div>
