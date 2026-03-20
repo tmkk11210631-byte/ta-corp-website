@@ -51,8 +51,7 @@ export default function Contact() {
           お問い合わせ
         </h2>
         <p className="text-gray-500 mb-16 max-w-xl">
-          ご質問・お見積りのご依頼はこちらからお気軽にどうぞ。
-          通常1〜2営業日以内にご返信いたします。
+          ご質問・お見積りのご依頼はこちらからお気軽にどうぞ。通常1〜2営業日以内にご返信いたします。
         </p>
 
         <div className="grid md:grid-cols-5 gap-12">

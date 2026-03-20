@@ -29,7 +29,7 @@ export default function About() {
         </div>
 
         {/* 大見出し */}
-        <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-20 leading-tight">
+        <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-10 md:mb-16 leading-tight">
           T.A株式会社<br />
           <span className="text-gold-gradient">について</span>
         </h2>
@@ -40,14 +40,10 @@ export default function About() {
           {/* Left: 本文 */}
           <div className="space-y-6">
             <p className="text-gray-700 text-lg leading-loose">
-              1995年の創業以来、製造・小売業を通じてお客様の生活と
-              ビジネスを支えてまいりました。確かな品質と誠実なサービスを軸に、
-              時代の変化に対応しながら成長を続けています。
+              1995年の創業以来、製造・小売業を通じてお客様の生活とビジネスを支えてまいりました。確かな品質と誠実なサービスを軸に、時代の変化に対応しながら成長を続けています。
             </p>
             <p className="text-gray-600 leading-loose">
-              「安心で、頼れる」という理念のもと、すべての製品・サービスに
-              全力を注いでいます。私たちはお客様の成功が、私たちの成功だと
-              信じています。
+              「安心で、頼れる」という理念のもと、すべての製品・サービスに全力を注いでいます。私たちはお客様の成功が、私たちの成功だと信じています。
             </p>
           </div>
 
