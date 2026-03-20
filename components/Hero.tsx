@@ -35,19 +35,17 @@ export default function Hero() {
         </h1>
 
         {/* サブキャッチコピー */}
-        <div className="flex items-center justify-center gap-4 mb-8">
-          <div className="h-px w-12 bg-brand-gold/60" />
-          <p className="text-gray-700 text-xl md:text-2xl font-bold tracking-wide">
+        <div className="flex items-center justify-center gap-3 mb-8">
+          <div className="h-px w-8 bg-brand-gold/60 shrink-0 hidden sm:block" />
+          <p className="text-gray-700 text-sm sm:text-xl md:text-2xl font-bold tracking-wide">
             製造・小売のプロフェッショナルが、あなたのそばに。
           </p>
-          <div className="h-px w-12 bg-brand-gold/60" />
+          <div className="h-px w-8 bg-brand-gold/60 shrink-0 hidden sm:block" />
         </div>
 
         {/* 説明文 */}
-        <p className="text-gray-500 text-base md:text-lg max-w-2xl mx-auto mb-16 leading-loose">
-          高品質な製品と誠実なサービスで、お客様のビジネスを力強くサポートします。
-          <br className="hidden md:block" />
-          T.A株式会社が、あなたの「信頼できるパートナー」になります。
+        <p className="text-gray-500 text-sm md:text-lg max-w-2xl mx-auto mb-16 leading-relaxed md:leading-loose">
+          高品質な製品と誠実なサービスで、お客様のビジネスを力強くサポートします。T.A株式会社が、あなたの「信頼できるパートナー」になります。
         </p>
 
         {/* CTAボタン */}
