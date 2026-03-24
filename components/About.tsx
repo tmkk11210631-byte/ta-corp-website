@@ -1,4 +1,5 @@
 /* Aboutセクション：ライトテーマ版 */
+import Image from "next/image";
 const values = [
   {
     title: "品質へのこだわり",
@@ -33,6 +34,21 @@ export default function About() {
           T.A株式会社<br />
           <span className="text-gold-gradient">について</span>
         </h2>
+
+        {/* 会社・現場イメージ写真 */}
+        <div className="relative h-56 md:h-80 rounded-2xl overflow-hidden mb-12 shadow-lg">
+          <Image
+            src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200&q=80&auto=format&fit=crop"
+            alt="T.A株式会社 製造現場"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent" />
+          <div className="absolute bottom-6 left-6 text-white">
+            <p className="text-xs font-bold tracking-widest opacity-70 uppercase mb-1">Since 1995</p>
+            <p className="text-xl md:text-2xl font-black">確かな品質と誠実な対応</p>
+          </div>
+        </div>
 
         {/* 上段：本文 + 代表メッセージ */}
         <div className="grid md:grid-cols-2 gap-12 mb-16 items-start">

@@ -1,4 +1,6 @@
 /* 実績セクション：ライトテーマ版 */
+import Image from "next/image";
+
 const results = [
   {
     id: "01",
@@ -10,6 +12,8 @@ const results = [
       { label: "コスト削減", value: "30%" },
       { label: "納期短縮", value: "2週間" },
     ],
+    image: "https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?w=400&q=80&auto=format&fit=crop",
+    imageAlt: "自動車部品製造",
   },
   {
     id: "02",
@@ -21,6 +25,8 @@ const results = [
       { label: "立ち上げ期間", value: "3ヶ月" },
       { label: "初年度黒字化", value: "達成" },
     ],
+    image: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=400&q=80&auto=format&fit=crop",
+    imageAlt: "小売店舗",
   },
   {
     id: "03",
@@ -32,6 +38,8 @@ const results = [
       { label: "在庫回転率", value: "×2" },
       { label: "欠品率", value: "0.3%以下" },
     ],
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&q=80&auto=format&fit=crop",
+    imageAlt: "物流倉庫",
   },
 ];
 
@@ -52,35 +60,53 @@ export default function Results() {
         </p>
 
         {/* 実績カード */}
-        <div className="space-y-6">
+        <div className="space-y-8">
           {results.map((r) => (
             <div
               key={r.id}
-              className="border border-gray-100 rounded-lg p-8 bg-white shadow-sm hover:shadow-md hover:border-brand-gold/30 transition-all duration-300 grid md:grid-cols-4 gap-6 items-start"
+              className="border border-gray-100 rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-md hover:border-brand-gold/30 transition-all duration-300"
             >
-              {/* 番号・業種 */}
-              <div className="md:col-span-1">
-                <div className="text-6xl font-black text-brand-gold/20 leading-none">{r.id}</div>
-                <p className="text-brand-red text-xs font-bold tracking-widest mt-2 uppercase">
-                  {r.industry}
-                </p>
-                <p className="text-gray-400 text-sm mt-1">{r.client}</p>
-              </div>
-
-              {/* 本文 */}
-              <div className="md:col-span-2">
-                <h3 className="text-gray-900 font-black text-xl mb-3">{r.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{r.desc}</p>
-              </div>
-
-              {/* 数値 */}
-              <div className="md:col-span-1 flex md:flex-col gap-4 md:gap-6">
-                {r.metrics.map((m) => (
-                  <div key={m.label} className="text-center md:text-right">
-                    <p className="text-3xl font-black text-brand-gold">{m.value}</p>
-                    <p className="text-gray-400 text-xs mt-0.5">{m.label}</p>
+              <div className="grid md:grid-cols-5 items-stretch">
+                {/* 左：業種イメージ写真 */}
+                <div className="relative h-48 md:h-auto md:col-span-1">
+                  <Image
+                    src={r.image}
+                    alt={r.imageAlt}
+                    fill
+                    className="object-cover"
+                  />
+                  {/* オーバーレイ＋業種ラベル */}
+                  <div className="absolute inset-0 bg-black/40" />
+                  <div className="absolute inset-0 flex flex-col justify-end p-4">
+                    <p className="text-white/70 text-xs font-bold tracking-widest uppercase">
+                      {r.industry}
+                    </p>
+                    <p className="text-white text-sm font-bold mt-0.5">{r.client}</p>
                   </div>
-                ))}
+                  {/* 番号バッジ */}
+                  <div className="absolute top-4 left-4 text-4xl font-black text-white/20 leading-none">
+                    {r.id}
+                  </div>
+                </div>
+
+                {/* 右：テキスト＋数値 */}
+                <div className="md:col-span-4 p-6 md:p-8 flex flex-col md:flex-row gap-6 items-start">
+                  {/* 本文 */}
+                  <div className="flex-1">
+                    <h3 className="text-gray-900 font-black text-xl mb-3">{r.title}</h3>
+                    <p className="text-gray-500 text-sm leading-relaxed">{r.desc}</p>
+                  </div>
+
+                  {/* 数値 */}
+                  <div className="flex md:flex-col gap-6 md:gap-6 shrink-0 md:text-right">
+                    {r.metrics.map((m) => (
+                      <div key={m.label}>
+                        <p className="text-3xl font-black text-brand-red">{m.value}</p>
+                        <p className="text-gray-400 text-xs mt-0.5">{m.label}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           ))}

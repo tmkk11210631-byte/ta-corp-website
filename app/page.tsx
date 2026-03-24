@@ -7,6 +7,7 @@ import Results from "@/components/Results";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Chatbot from "@/components/Chatbot";
+import Gallery from "@/components/Gallery";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <Services />
         <Pricing />
         <Results />
+        <Gallery />
         <Contact />
       </main>
       <Footer />
