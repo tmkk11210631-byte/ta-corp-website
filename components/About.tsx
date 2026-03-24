@@ -1,5 +1,4 @@
 /* Aboutセクション：ライトテーマ版 */
-import Image from "next/image";
 const values = [
   {
     title: "品質へのこだわり",
@@ -36,13 +35,14 @@ export default function About() {
         </h2>
 
         {/* 会社・現場イメージ写真 */}
-        <div className="relative h-56 md:h-80 rounded-2xl overflow-hidden mb-12 shadow-lg">
-          <Image
-            src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200&q=80&auto=format&fit=crop"
-            alt="T.A株式会社 製造現場"
-            fill
-            className="object-cover"
-          />
+        <div
+          className="relative h-56 md:h-80 rounded-2xl overflow-hidden mb-12 shadow-lg bg-gray-300"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200&q=80&auto=format&fit=crop')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
           <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent" />
           <div className="absolute bottom-6 left-6 text-white">
             <p className="text-xs font-bold tracking-widest opacity-70 uppercase mb-1">Since 1995</p>

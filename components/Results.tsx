@@ -1,5 +1,4 @@
 /* 実績セクション：ライトテーマ版 */
-import Image from "next/image";
 
 const results = [
   {
@@ -68,13 +67,14 @@ export default function Results() {
             >
               <div className="grid md:grid-cols-5 items-stretch">
                 {/* 左：業種イメージ写真 */}
-                <div className="relative h-48 md:h-auto md:col-span-1">
-                  <Image
-                    src={r.image}
-                    alt={r.imageAlt}
-                    fill
-                    className="object-cover"
-                  />
+                <div
+                  className="relative h-48 md:h-auto md:col-span-1 bg-gray-300"
+                  style={{
+                    backgroundImage: `url('${r.image}')`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                >
                   {/* オーバーレイ＋業種ラベル */}
                   <div className="absolute inset-0 bg-black/40" />
                   <div className="absolute inset-0 flex flex-col justify-end p-4">

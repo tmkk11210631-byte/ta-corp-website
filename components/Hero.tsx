@@ -1,5 +1,4 @@
 /* ヒーローセクション：分割レイアウト（左テキスト / 右イメージ） */
-import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -83,14 +82,14 @@ export default function Hero() {
           </div>
 
           {/* 右：メインビジュアル画像 */}
-          <div className="relative h-72 md:h-screen max-h-[700px] rounded-2xl md:rounded-none overflow-hidden">
-            <Image
-              src="https://images.unsplash.com/photo-1565793296-91f65c8a41b5?w=900&q=80&auto=format&fit=crop"
-              alt="T.A株式会社 製造現場"
-              fill
-              className="object-cover"
-              priority
-            />
+          <div
+            className="relative h-72 md:h-screen max-h-[700px] rounded-2xl md:rounded-none overflow-hidden bg-gray-200"
+            style={{
+              backgroundImage: "url('https://images.unsplash.com/photo-1565793296-91f65c8a41b5?w=900&q=80&auto=format&fit=crop')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
             {/* 左側に白からのグラデーションオーバーレイ（PC のみ） */}
             <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-transparent hidden md:block" />
             {/* 下部に暗いオーバーレイ */}

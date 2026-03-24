@@ -1,5 +1,4 @@
 /* ギャラリーセクション：工場・現場・チームの写真グリッド */
-import Image from "next/image";
 
 const photos = [
   {
@@ -57,14 +56,13 @@ export default function Gallery() {
           {photos.map((photo, i) => (
             <div
               key={i}
-              className={`relative rounded-xl overflow-hidden group ${photo.span}`}
+              className={`relative rounded-xl overflow-hidden group bg-gray-300 ${photo.span}`}
+              style={{
+                backgroundImage: `url('${photo.src}')`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
             >
-              <Image
-                src={photo.src}
-                alt={photo.alt}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-              />
               {/* ホバー時オーバーレイ */}
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300" />
               {/* ラベル（ホバーで表示） */}
