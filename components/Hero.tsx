@@ -1,6 +1,39 @@
-/* ヒーローセクション：分割レイアウト（左テキスト / 右イメージ） */
+/* ヒーローセクション：分割レイアウト（左テキスト / 右スライドショー） */
+"use client";
+
+import { useState, useEffect } from "react";
+
+/* スライドショー用画像リスト */
+const slides = [
+  {
+    src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=900&q=80&auto=format&fit=crop",
+    label: "製品製造",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=900&q=80&auto=format&fit=crop",
+    label: "製造現場",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1553413077-190dd305871c?w=900&q=80&auto=format&fit=crop",
+    label: "在庫・物流",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=900&q=80&auto=format&fit=crop",
+    label: "お客様との商談",
+  },
+];
 
 export default function Hero() {
+  const [current, setCurrent] = useState(0);
+
+  /* 5秒ごとに自動切り替え */
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section
       id="hero"
@@ -81,22 +114,50 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* 右：メインビジュアル画像 */}
-          <div
-            className="relative h-72 md:h-screen max-h-[700px] rounded-2xl md:rounded-none overflow-hidden bg-gray-200"
-            style={{
-              backgroundImage: "url('https://images.unsplash.com/photo-1565793296-91f65c8a41b5?w=900&q=80&auto=format&fit=crop')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          >
+          {/* 右：スライドショー */}
+          <div className="relative h-72 md:h-screen max-h-[700px] rounded-2xl md:rounded-none overflow-hidden bg-gray-200">
+
+            {/* スライド画像（フェードイン/アウト） */}
+            {slides.map((slide, i) => (
+              <div
+                key={i}
+                className="absolute inset-0 transition-opacity duration-1000"
+                style={{
+                  backgroundImage: `url('${slide.src}')`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  opacity: i === current ? 1 : 0,
+                }}
+              />
+            ))}
+
             {/* 左側に白からのグラデーションオーバーレイ（PC のみ） */}
-            <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-transparent hidden md:block" />
+            <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-transparent hidden md:block z-10" />
             {/* 下部に暗いオーバーレイ */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-10" />
+
+            {/* 現在のスライドラベル */}
+            <div className="absolute top-6 right-6 z-20">
+              <span className="bg-brand-red text-white text-xs font-bold px-3 py-1 rounded">
+                {slides[current].label}
+              </span>
+            </div>
+
+            {/* ドットインジケーター */}
+            <div className="absolute bottom-20 right-6 flex flex-col gap-2 z-20">
+              {slides.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrent(i)}
+                  className={`w-1.5 rounded-full transition-all duration-300 ${
+                    i === current ? "h-6 bg-white" : "h-1.5 bg-white/50"
+                  }`}
+                />
+              ))}
+            </div>
 
             {/* 画像上のバッジ */}
-            <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm rounded-xl px-5 py-3 shadow-lg">
+            <div className="absolute bottom-6 left-6 z-20 bg-white/95 backdrop-blur-sm rounded-xl px-5 py-3 shadow-lg">
               <p className="text-xs text-gray-500 mb-0.5">創業</p>
               <p className="text-xl font-black text-gray-900">1995年</p>
               <p className="text-xs text-brand-red font-bold">30年の信頼と実績</p>
