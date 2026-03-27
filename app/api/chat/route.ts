@@ -104,7 +104,7 @@ export async function POST(req: NextRequest) {
         controller.close();
       } catch (error: unknown) {
         const errMsg = error instanceof Error ? error.message : String(error);
-        console.error("Chat API エラー:", errMsg);
+        console.error("Chat API エラー詳細:", errMsg);
         controller.enqueue(
           encoder.encode("エラーが発生しました。しばらくしてから再度お試しください。")
         );
